@@ -1,0 +1,96 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<header>
+  <div class="navbar navbar-dark bg-dark box-shadow fixed-top">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <strong><i class="fa fa-spoon pr-2" ></i>OFO</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+  <div class="collapse bg-dark " id="navbarHeader" [ngbCollapse]="isCollapsed">
+    <div class="container ">
+      <div class="row ">
+        
+        <div class="col-sm-12">
+            <br> <br>
+          <ul class="list-unstyled mt-4">
+            <li><a href="#" class="text-white">
+                <i class="fa fa-plus-square pr-2"></i>Add new recipie</a>
+            </li> 
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main role="main ">
+
+  <section class="jumbotron text-center my-5 bg-light">
+    <div class="container">
+      <h1 class="jumbotron-heading">Order Food Online</h1>
+      <p class="lead text-muted">This example shows listing collection of food dishes to order online</p>
+    </div>
+  </section>
+
+  <div class="album py-2 ">
+
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <select class="custom-select custom-select-sm" (change)="OnCategoryChange(data.category)">            
+            <option [value]="Lunch" selected>Lunch</option>
+            <option [value]="Breakfast">Breakfast</option>
+            <option [value]="Dinner">Dinner</option>
+            <option [value]="Desserts">Dessert</option>
+          </select>
+        </div>
+        <div class="col-md-9">
+          <div class="btn-group float-right" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-outline-secondary btn-sm ">Veg</button> 
+              <button type="button" class="btn btn-outline-secondary btn-sm">Non-Veg</button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+      <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let recipies of data">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="assets/img/{{ recipies.img_thumbnail }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title name">{{ recipies.name }}</h5>
+              <p class="card-text desc text-muted">{{ recipies.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-primary">Add to cart</button> 
+                </div>
+                <small><strong>₹{{ recipies.cost }}</strong></small>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+</div>
+
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p> &copy; OFO </p>
+    
+  </div>
+</footer>
+
+
+
